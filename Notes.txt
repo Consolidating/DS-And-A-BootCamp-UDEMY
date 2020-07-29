@@ -1,0 +1,510 @@
+5/9/2020
+
+Question 1 - Reversing a String 
+1) Solution #1 
+	- Array.prototype.reverse() 
+2) Solution #2 
+	- Create variable called reversed
+	- Iterate Str and concatenante reversed to the end of Str iteration
+		- H
+		- E
+		- L
+		- L
+		- O
+
+	let reversed = '';
+   	for (char of str){
+       reversed = char + reversed 
+   	}
+   	return reversed; 
+3) Solution #3 - Array Helper 
+	- Reduce Helper Function 
+		- Reduce is used take all the values of the array and condense to single string value 
+		- Reduce((total,num)=>{},'') - Takes two values
+			- Reduce will take starting arguement pass into arrow function as argument, and whatever gets returned will get used subsequently 
+
+	return str.split('').reduce((reversed, character) => {
+    return character + reversed;
+  	},'');
+
+TIP - Avoid classic forloops as much as possible.
+	- For questions that will iterate over intervals, it may be good idea to use classic forloop
+	- For of vs For in 
+		- For Of - Returns values (actual characters or items in array)
+		- For in - Returns list of keys (the "i")
+
+JAVASCRIPT REDUCE METHOD
+	- Takes callback with 2 arguements (accumulator, currentValue). In each iteration, the reduce function will store result of the callback function in the accumulator while the currentValue represents the value of iteration 
+	- The second argument of reduce is the initial value for accumulator 
+
+DEBUGGER STATEMENT
+	- Add debugger statement to your funciton
+	- Call function manually
+	- At terminal, run node inspect {file}.js
+	- To continue execution - press c then enter
+	- To launch a "repl" session, type 'repl' and enter
+	- To exit 'repl', press Ctr + C 
+
+Palindrome - Strings that form the same word if it is reversed 
+
+QUESTION 2 - PALINDROME
+1) Solution #1 
+	- Reverse Array and return boolean comlparison of reversed array vs original string
+
+2) Solutio #2 - Array Helper Function Every()
+	- 
+
+Array.prototype.every(ele, index)
+	- every function is used to do a boolean check on every element in array
+	- If any output returns false, overall expression will return false as well 
+
+
+QUESTION 3 - REVERSEINT
+	1) Solution #1 
+		- Convert number to string and do reverse string alg
+		- Trick One - Convert to String .toString()
+		- Math.Sign will return 1 for positive or -1 for negative 
+		- parseInt()
+
+QUESTION - MAXCHAR
+	1) Solution #1 
+		- Convert string to object as keys and have values of count 
+		- TRICK -Character Map 
+
+
+TIPS - Counting/Comparing characters between two strings 
+	- What is the most common character in string?
+	- Does string A have same characters as string B?
+	- Does given string have any repeated characters in it? 
+
+ITERATING THROUGH OBJECT
+	- To iterate OBJECTS - Use For IN loop
+	- This will return the KEYS in object 
+
+anagram - When string has same characters as another string 
+
+QUESTION - ARRAY CHUNKING
+
+SOLUTION #1 - CHUNK
+	1) Solution #1 - Array of Array 
+		- Create empty array to hold chunks
+		- For each element in array
+			- Retrieve last element in chunked
+				- If element does not exist or if length is equal to chunk size
+					- Push new chunk into chunked with current element
+				- Else add current element into chunk 
+
+	2) Solution #2 - Array.Slice(beg,end)
+		- Create empty 'chunked' array
+		- create "index" at 0
+		- While index < array.length
+			- Push slice of length 'size' from 'array' into 'chunked'
+			- Add 'size' to index
+
+TIPS - Array.Slice(beg,end) Returns a COPY 
+
+QUESTION - ANAGRAMS
+	- ANAGRAM - Same number and quantity of characters 
+	- Only consider characters, not case sensitive 
+
+	SOLUTION #1 - Character Maps 
+		- Build Character Map out of StringA and StringB and compare all characters
+		- Helper function to build character Map 
+		- Compare Length of Character Maps 
+			- Object.key(obj) returns array of keys 
+
+	SOLUTION #2 - Array.Sort()
+		- Javascript will sort alphabetical order and compare stringA and stringB
+
+TIP - RegExp
+	- RegExp can be used to remove all the space/punctuations 
+	- Regex - When inside bracket [], ^ means not, else it means start of line 
+	- Character Maps are often used in String and comparison problems 
+	- SORT STRINGS FIRST - then use character map 
+
+	SIMPLIFY IF STATEMENT
+
+	for (let char of str.replace(/[^\w]/g,'').toLowerCase()){
+           charMap[char] = charMap[char] + 1 || 1 }
+     
+    Equivalent to:
+
+    function Convert(string,Obj){
+    for (char of string){
+    	if(!Obj[char]){
+    		Obj[char] = 1 
+    	} else {
+    		Obj[char] += 1}
+    }
+
+QUESTION - SENTENCE CAPITALIZATION
+	- SOLUTION #1 - Javascript Standard Libary Strings 
+		- Naje enoty array "words"
+		- Split input string by spaces to get array
+		- For each word in array
+			- Uppercase first letter of the word
+			- Join first letter with rest of string
+			- Push result into "words" array 
+		- Join "words" array into a string and return it 
+
+	- SOLUTION #2 - Brute Force (Copying Array)
+		- Create 'result' which is the first character of the input string capitalized 
+		- For each character in the string
+			If Character to the left is a space
+				Capitalize it and add it to "result"
+			ELSE 
+				Add to 'result'
+
+TIPS
+	- String.slice(begIndex, [endIndex]) - Takes some element out of string and 
+
+QUESTION - THE STEP QUESTION
+	- SOLUTION #1 - Iterative (Think of it as MATRIX)
+		- From 0 to n (iterate through rows)
+			- Create empty string "stair"
+			- From 0 to n (columns)
+				- If current Solumn equal to or less than current row
+					- Add # to 'stair'
+				ELSE 
+					- Add a space to 'stair'
+			-console.log(stair)
+	- SOLUTION #2 - RECURSIVE SOLUTION
+		- Base Case - if (row === n) then we have hit end of problem
+		- if the 'stair' string has length === n then we are at end of row 
+		- if length of the stair string is less than or equal to the row number, we add # else add ' '
+
+TIPS - Whenever dealing with problems involving rows/columns, see if you can identify pattern in matrix 
+	- RECURSION
+		- Figure out the bare minimum pieces of information that represent problem
+		- Give reasonable defaults to bare minimum piece of info
+		- Check the base case - Is there any work left to do? If not, return 
+		
+QUESTION - PYRAMIDS 
+	- SOLUTION #1 - ITERATIVE SOLUTION
+		- For loop which will iterate each row 
+		- Empty string to represent level
+		- We will iterate all columns
+			- 2 x N - 1 will give total number of columns 
+		- Calculate midpoint of column array, take either side of centre index and make thoes into pounds 
+			- Use Math.floor((2 * n - 1)/2)) will return mid point endIndex
+	- SOLUTION #2 - RECURSIVE SOLUTION
+		- if row === n; return 
+
+
+TIPS 
+	- Think how n is related to number of columns 
+	- Relate row and col to get # and spaces 
+	- For Recursive Solution - ALWAYS set base case correctly 
+
+QUESTION - VOWELS
+	- SOLUTION #1 - ITERATIVE
+		- Iterate string and use Array.includes to test each character. 
+		- Counter variable returned 
+
+	- SOLUTION #2 - REGEX
+		- str.match(/[aeious]/gi)
+			-[] - Means anything inside
+			-g - Means global
+			-i means case insensitive 
+		- match function returns array 
+
+TIPS 
+	- Helper Function - str.includes()
+
+QUESTION - MATRIX SPIRAL 
+	- SOLUTION #1 
+		- Uses variables to track range of loop 
+
+
+TIPS 
+	- We can assign values to indices of arrays not initialized 
+
+
+RUNTIME COMPLEXITY
+	- Describe performance of an algorithm 
+	- Used to compare different solutions to given problem
+	- How much more processing power do we need to run given solution if we increase number of inputs 
+
+Example - String Reverse
+	- Each additional character = 1 additional step
+		- Linear Runtime or "N"	- Direct 1 to 1 relationship between input and work processed 
+
+Example - Steps Algorhitmn
+	- Quadratic runtime or N^2
+	- When input increase, we had to do signicantly more work 
+
+Runtimes
+	Constant Time - 1
+		- No matter how many elements we work with, the operation will always take same amount of time 
+
+	Logarithmic Time - log(n)
+		- If doubling the number of elements doesn't double the amount of work
+		- Always assume searching operations are log(n)
+
+	Linear Time - n
+		- Iterating through all elements in a collection of data. If you see a for loop spanning from 0 to array.length, there is probably linear or 'n' runtime
+
+	Qasillinear - n*log(n)
+		- If doubling the number of elements iterating over doesn't double the amount of work.
+		- Always assume that any sorting operation is n*log(n)
+		- "One plus a little bit"
+
+	Quadratic - n^2
+		- Every element in a collection has to be compared to every other element (Handshake problem)
+
+	Exponential Time - 2 ^ n (AVOID)
+		- One of the worst 
+		- Processing power significantly increases when additional input
+		- AVOID 
+		- If you add *single* element in a collection, the processing power required doubles 
+
+BIG 'O' Notation - Another way to reference run time complexity or Efficiency 
+	- Common way to write run time complexity 
+	- O(n) = Linear Runtime 
+	- O(1) = Constant Runtime
+	- O(n^2) = Quadratic Runtime 
+
+Identifying Runtime Complexity
+	1) Iterating with simple for loop through a single collection - Probably O(n)
+	2) Iterating through half a collection - Still O(n), there are no constants in runtime
+		- Even if for loops stops in middle, the it is still O(n)
+	3) Iterating through two *different* collections with separate for loops - O(n+m)
+		- n indicates performance impact of first string and m represent second string 
+		- Multiple arguments 
+		- Any time you are processing two sets of data 
+	4) Two nested for loops iterating over ONE collection - O(n^2)
+	5) Two nested for loops iterating over different collections - O(n*m)
+		- Still quadratic, if has two sets of data being nested iterated over 
+	6) Sorting - O(n*log(n))
+		- Best runtime is O(n*log(n)) for sorting 
+	7) Searching a sorted Array - O(log(n))
+
+SPACE COMPLEXITY - Reference to RAM or Memory an algo needs to complete a given task 
+	- How much more memory is required by doubling the problem set?
+
+QUESTION - FIBONACCI SERIES 
+	- SOLUTION #1 - ITERATIVE
+		- Create Array
+		- Assemble all numbers up to entry N and return
+
+	- SOLUTION #2 - RECURSIVE 
+		- Inefficient, essentially will add 1s until we get nth in the fib sequence 
+
+TIP - First two numbers cannot be effectively generated via forloop
+
+Performance Characteristics 
+	- ITERATIVE - Linear Run Time 
+		- 
+	- RECURSIVE - Exponential Time 
+		- Anytime we see exponential time, there is usually a solution more efficient 
+
+Memoization - Store the arguments of each function call along with the result. If the function is called again with the same arguments, return the precomputed result rather than running the function again 
+	- Caching results 
+	- Write a new function called Memoize (Generic Function)
+		- Return a fast memoized fib function 
+		- Keys of cache object will be argument we called function with before 
+
+DATA STRUCTURES - All about runtime complexity
+	1) Ways of organizing information with optimal 'runtime complexity' of adding or removing records
+	2) Javascript natively implements several data structures 
+		- A JScript array does everything a classic queue does 
+
+The Queue Data Structure 
+	- Container where records enter on one end and exit on other end 
+	- Think waiting in line, FIFO 
+		- TERMS
+			- Enqueuing (Adding a record)
+			- Dequeuing (Removing a record)
+		- Javascript Queu
+			- Add to queue - array.unshift();
+			- Remove from queue - array.pop();
+
+TIPS - Function declarations are hoisted but Class declarations are not in JScript 
+	- Constructor Method - Special method for creating and initializing object created with a class 
+	- There can only be one special method with the name "constructor" in a class 
+	- STATIC METHODS - Static keywords define a static method for a class. Static methods are called without instantiating their class and cannot be called through a class instance 
+	- Constructor automatically called when new instance created 
+
+UNDERWATER QUEUE WEAVING
+	- Weaving - Refers to combining two queue 
+
+The STACK Datastructure
+	- Similar to QUEUE 	
+	- Ordered list of records
+	- Adding Record to stack refered to as pushing
+	- Removing Record from stack is refered to as popping 
+	- LIFO - Last in First Out 
+	- STACK METHODS
+		- Push - Add record to stack
+		- Pop - Remove top record in stack 
+		- Peek - Return top record without popping it 
+TWO BECOME ONE
+	- Creating a Queue from a stack 
+	- RECALL 
+		1) STACK - LIFO
+		2) QUEUE - FIFO 
+
+	1) SOLUTION #1 
+		- Add Method
+			- Whenever we add a record, we add it to Stack A 
+		- Remove
+			- For every record in Stack A - Pop and push it to B 
+			- return pop of B
+			- While loop to move everything back to A
+
+
+DATA STRUCTURE - LINKED LIST 
+	- Ordered Collection of Data
+		- Collection contains different number of nodes which contain some amount of data and reference to next node 
+		- Linked List refers to handful of these nodes put together 
+		- Also referred to as chain or chain of nodes 
+		- node has order that is always maintained 
+		- ALways two special nodes in every linkedlist
+			1) Head - First Node
+			2) Tail - Last Node and does not have reference to any other node 
+
+	- Code Reuse in LinkedLists
+		- getAt - Allows us to get element at some given index
+		- getFirst - Returns first element 
+		- getLast - Returns last element 
+		- Note - Rather than writting getFirst and getLast, we could have just used getAt and provide argument to manipulate given index 
+
+	- List Traversal Through ForEach
+		- Allow us to pass in custom iterator applied to every node in linkedlist
+
+	- GENERATORS
+		- Babel used to translate ES6 Code to ES5 browser 
+		- Gives us ability to iterate through a collection of data 
+		- When we define a generator, we call generator and call .next on returned value 
+			- Code inside generator will execute till Yield statement is found 
+			- When yield statement is found, execution of that function is paused.
+		- Syntax for generators function *func()
+		- yield keyword, pauses execution of generator 
+		- generator.next will resume execution of generator after yield 
+			- if we call generator.next(val), the val will replace the yield statement 
+			- We can have multiple yield statement inside single generator 
+		- NESTING GENERATOR
+			- yield* means second generator until no more yields 
+
+Linked List General Problem Solving Strategy
+	- Create 2 Variables
+		1) slow - increment node by 1 
+		2) fast - Increment node by 2  
+			- if element aftter fast and after exists, keep going, else slow is at center
+	- Logic, move slow half as fast as fast variable
+
+Detecting Linked Lists Loop
+	- Slow and fast pointing to node, if both point to different node then keep iterating
+	- else if slow and fast point to same node 
+
+TREES
+	- Several Types of Trees 
+	- Every box is referred to as a node 
+	- Individual node holds some amount of data and also reference to all of its children 
+	- Child - Node directly underneath another node 
+	- Siblings - Node at a given level with common parent 
+	- Tree Traversal - Iterating through all elements within a tree 
+		- There are two distinct ways to iterate elements
+			1) Breadth - First Traversal
+				- Iterate at each level of tree from left to right 
+				- Start at root and go down 
+			2) Depth - First Traversal
+				- Start at top of tree and go down left side as far as we can go, go up to closest parent and go down again 
+				- Try to get to bottom as soon as possible 
+
+	Tree Implementation
+		1) NODE CLASS
+			1) Create Node Class with empty array for storing children 
+			2) Add "add" and "remove" method
+		2) Set Root of tree = Node
+			- To add, we need to specify which node on tree to add 
+			- BreadthFirst Traversal - Start off by iterating each level of our tree 
+
+	RECALL FITER - Helper function
+		- Takes a function (Boolean check logic), if false will be removed from array 
+		- Filter does not modify original array 
+
+Depth First Traversal
+	- Go down to left hand side to bottom and loop back up and down 
+	- Code to DFT is similar to BFT 
+	- Array - Take root, if has element, we will take first element and its children and put into start of arrray
+		- DFT - Put children start of array
+		- BFT - Put children end of array  
+
+Level-Width
+	- Given root node of tree, return array where each element is width of the tree at given level 
+	- Anytime the word "Width" comes up, think about BFT 
+
+
+RECURSION
+	- Recurision - Process in which function calls itself directly or indirectly 
+	- Whenever function is called, activation record maintained inside stack 
+		- Activation Record contains local variables 
+	https://stackoverflow.com/questions/12524913/return-statements-in-recursion
+	- Returning a value form a function makes evaluation of the function-call expression become that value 
+
+Validating Binary Search Tree
+	- Carrying additional function arguments: Max, Min 
+
+Twitter Design Question
+	- High Level Notes
+		- There is usually no right answer
+		- Focus usually on data model
+			- Ask interviewer what to focus on 
+			- If you are using framework - list specific attributes of framework required here 
+			- Draw diagram 
+		- Identify Core Features --> Possible implementations --> Identify and Address Difficulties --> Solutions for Scaling 
+			- Caching Requests from Database
+				- Memory Store - Learn how to cache data in general 
+			- Deployment Options - Load Balancer 
+				- Load Balancer sends requests to different servers randomly so servers can respond concurrently 
+
+SORTING - Common Algos 
+	- BubbleSort  
+		- Runtime: n^2 - Not good to be used in large datasets 
+		- Easy
+	- SelectionSort
+		- Runtime: n^2 - Not good to be used in large datasets 
+		- Easy
+	- MergeSort
+		- Runtime: n*log(n)
+		- Medium 
+		- In interview - Can assume it will take n*log(n) if sorting needed for algo 
+
+
+Bubble Sort Implementation
+	- Implement bubble sort which takes array of numbers and return sorted array 
+	- From i = 0 to < array length
+		From j = 0 to array length - i
+			if elemement at j is greater than j + 1 
+				swap elements at j and j + 1 
+	- Sorts array by iterating array and nested loop iterating array to to -1 
+	- For every step of outter loop, innerloop will have shrinking steps of elements to iterate
+	- Purpose is to find largest element in array and drag to far right side 
+	- Even if array already sorted, the algo will continue to sort until the end 
+		- Tricky Part: Swapping elements - need to create temporary variable 
+
+Selection Sort Implementation (Prove me wrong sort)
+	- Easier to understand conceptually than bubble sort but harder to implement 
+	- From i = 0 < array length
+		Assume the element at i is the least in the array,
+		assign i to indexOfMin
+		For j from i + 1 to end of array
+			- see if there is element with lower value
+			- if there is, record its index
+		if index of current element and index of the lowest element is not the same, swap them
+
+MergeSort - Usually solved with recurive solution using two separate functions with different purpose
+	- Merge Function - Merge two sorted array into one sorted array 
+		- Create 'result' array
+		- While there still elements in both arrays
+			if the first element the left array half is less than first in right half
+				shift the element from left into 'result' array
+			else
+				'shift' the element from right a 'result' arr
+		- Take everything from the aray that still has stuff in it and put it in results 
+		- ES6 Implementation return [...arr, ...arr2, ...arr3] - joints array arr1, arr2, arr3 
+	- MergeSort Function
+		- Takes input array and divided to as small chunk as possible (1 element)
+		- 1) divide array into two halves
+		- 2) Recursively call mergesort to divide again until smallest chunk possible 
